@@ -1,6 +1,14 @@
 # SpatialReference
 > A helper library for translating between spatial reference systems
 
+[![npm version][npm-img]][npm-url]
+[![build status][travis-img]][travis-url
+
+[npm-img]: https://img.shields.io/npm/v/spatialreference.svg?style=flat-square
+[npm-url]: https://www.npmjs.com/package/spatialreference
+[travis-img]: https://img.shields.io/travis/koopjs/spatialreference/master.svg?style=flat-square
+[travis-url]: https://travis-ci.org/koopjs/spatialreference
+
 ## Usage
 
 Basic installation: `npm install spatialreference`
