@@ -1,0 +1,38 @@
+{
+  "name": "spatialreference",
+  "version": "1.0.0",
+  "description": "A helper library for translating spatial reference systems",
+  "main": "index.js",
+  "scripts": {
+    "test": "standard && node test/*.js | tap-spec"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/koopjs/spatialreference.git"
+  },
+  "keywords": [
+    "gis",
+    "spatial",
+    "srs",
+    "wkt",
+    "wkid",
+    "projection",
+    "geographic"
+  ],
+  "author": "Daniel Fenton <dfenton@esri.com>",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/koopjs/spatialreference/issues"
+  },
+  "homepage": "https://github.com/koopjs/spatialreference#readme",
+  "devDependencies": {
+    "sinon": "^1.16.1",
+    "standard": "^5.2.2",
+    "tap-spec": "^4.1.0",
+    "tape": "^4.2.0"
+  },
+  "dependencies": {
+    "esri-proj-codes": "^1.0.0",
+    "request": "^2.62.0"
+  }
+}
