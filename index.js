@@ -124,7 +124,7 @@ SpatialReference.prototype._insertIntoDb = function (wkid, wkt, callback) {
 }
 
 /**
- * Logs using the passed in logger if available, else logs message using console.error
+ * Logs using the passed in logger if available, else logs using console.error
  *
  * @param {string} level - the log level to use
  * @param {string} message - the message to log
