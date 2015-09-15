@@ -49,5 +49,5 @@ sr.esriLookup(2927, function (err, wkt) {
 })
 ```
 
-## Thank yous
+## Acknowledgements
 This module leans heavily on the spatial reference information saved in PostGIS and the data available at spatialreference.org. It would not be possible without those two resources. So thank you to all involved.
