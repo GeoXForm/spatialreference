@@ -6,7 +6,7 @@
 
 [npm-img]: https://img.shields.io/npm/v/spatialreference.svg?style=flat-square
 [npm-url]: https://www.npmjs.com/package/spatialreference
-[travis-img]: https://img.shields.io/travis/koopjs/spatialreference/master.svg?style=flat-square
+[travis-img]: https://travis-ci.org/koopjs/spatialreference.svg?branch=master
 [travis-url]: https://travis-ci.org/koopjs/spatialreference
 
 ## Usage
