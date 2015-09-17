@@ -15,6 +15,40 @@ Basic installation: `npm install spatialreference`
 
 Then to use the module: `var SR = require('spatialreference')`
 
+### With a DB
+To use this module with a db that can store or retrieve WKTs, it needs to support (or be wrapped to support) two functions:
+```javascript
+function getWKT (wkid, function (err, wkt) {
+// do some stuff to get a wkt
+callback(null, wkt)
+})
+```
+```javascript
+function insertWKT (wkid, wkt, function (err) {
+// store the wkt in the db
+callback(null)
+})
+```
+Then initialize the SpatialReference object with a db in the options.db key
+```javascript
+var SR = require('spatialreference')
+var db = require('koop-pgcache') // or your db that supports getWKT and insertWKT
+var sr = new SR({db: db})
+```
+
+### With a logger
+By default SpatialReference will log to the console, but you can optionally pass in a logger in the options key. It needs to support a function like:
+```javascript
+function log('level','message') {
+// write a log!
+}
+```
+```javascript
+var SR = require('spatialreference')
+var logger = require('winston')
+var sr = new SR({logger: logger})
+```
+
 ## API
 
 ### wkidToWkt
