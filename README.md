@@ -52,7 +52,7 @@ var sr = new SR({logger: logger})
 ## API
 
 ### wkidToWkt
-This method takes a spatial reference system well-known id and gets the well-known text. If the WKID is an esri code, then it will use the esri-proj-codes library. If the WKID is available in a passed in database it will get it from there. Else it will make a request to http://www.spatialreference.org, insert the WKT into the database and return it to the client. 
+This method takes a spatial reference system well-known id and gets the well-known text. If the WKID is an esri code, then it will use the esri-proj-codes library. If the WKID is available in a passed in database it will get it from there. Else it will make a request to http://www.epsg.io, insert the WKT into the database and return it to the client. 
 
 Example using [koop-pgcache](https://github.com/koopjs/koop-pgcache)
 ``` javascript
@@ -84,4 +84,4 @@ sr.esriLookup(2927, function (err, wkt) {
 ```
 
 ## Acknowledgements
-This module leans heavily on the spatial reference information saved in PostGIS and the data available at spatialreference.org. It would not be possible without those two resources. So thank you to all involved.
+This module leans heavily on the spatial reference information saved in PostGIS and the data available at epsg.io. It would not be possible without those two resources. So thank you to all involved.
