@@ -60,7 +60,7 @@ SpatialReference.prototype.esriLookup = function (wkid, callback) {
 }
 
 /**
- * Logs errors from requests to the spatialreference.org API then calls back with error
+ * Logs errors from requests to the epsg.io API then calls back with error
  *
  * @param {error} err - an http response error
  * @param {function} callback - calls back with the http error
@@ -72,14 +72,14 @@ SpatialReference.prototype._handleApiError = function (err, callback) {
 }
 
 /**
- * Makes a http request to spatialreference.org for epsg well-known text
+ * Makes a http request to epsg.io for epsg well-known text
  *
  * @param {integer} wkid - the epsg well-known id to be translated
  * @param {function} callback - calls back with the well-known text for the spatial reference or an error
  * @private
  */
 SpatialReference.prototype._getFromApi = function (wkid, callback) {
-  var url = 'http://spatialreference.org/ref/epsg/' + wkid + '/ogcwkt/'
+  var url = 'http://epsg.io/' + wkid + '.wkt'
   this._req(url, callback)
 }
 
