@@ -1,5 +1,6 @@
 var request = require('request')
 var esriCodes = require('esri-proj-codes')
+var fixWkt = require('./lib/fixWkt')
 
 /**
  * SpatialReference constructor, exposes translation methods
@@ -31,16 +32,16 @@ SpatialReference.prototype.wkidToWkt = function (wkid, callback) {
       if (err) {
         self._getFromApi(wkid, function (err, wkt) {
           if (err) return self._handleApiError(err, callback)
-          self._insertIntoDb(wkid, wkt, callback)
+          self._insertIntoDb(wkid, fixWkt(wkt), callback)
         })
       } else {
-        callback(null, wkt)
+        callback(null, fixWkt(wkt))
       }
     })
   } else {
     self._getFromApi(wkid, function (err, wkt) {
       if (err) return self._handleApiError(err, callback)
-      callback(null, wkt)
+      callback(null, fixWkt(wkt))
     })
   }
 }
@@ -111,7 +112,7 @@ SpatialReference.prototype._getFromDb = function (wkid, callback) {
       self._log('error', 'Unable to get WKT from the db. ' + err.message)
       return callback(new Error('Unable to get WKT from the db'))
     }
-    callback(null, wkt)
+    callback(null, fixWkt(wkt))
   })
 }
 

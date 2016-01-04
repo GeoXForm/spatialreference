@@ -2,6 +2,10 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## Unreleased
+### Fixed
+* Add corrections for known problematic wkts
+
 ## [1.0.1] - 2015-09-18 
 ### Changed
 * Change from spatialreference.org to epsg.io
