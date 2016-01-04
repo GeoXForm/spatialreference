@@ -1,6 +1,6 @@
 var request = require('request')
 var esriCodes = require('esri-proj-codes')
-var fixWkt = require('./lib/fixWkt')
+var fixWkt = require('./lib/fixwkt')
 
 /**
  * SpatialReference constructor, exposes translation methods
