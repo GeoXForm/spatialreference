@@ -15,6 +15,6 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 * Change from spatialreference.org to epsg.io
 
 
-[1.0.2]:(https://github.com/koopjs/spatialreference/compare/v1.0.2...v1.0.1)
-[1.0.1]:(https://github.com/koopjs/spatialreference/compare/v1.0.0...v1.0.1)
+[1.0.2]: https://github.com/koopjs/spatialreference/compare/v1.0.2...v1.0.1
+[1.0.1]: https://github.com/koopjs/spatialreference/compare/v1.0.0...v1.0.1
 
