@@ -2,7 +2,7 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
-## Unreleased
+## [1.0.3] - 2016-03-25
 ### Added
 * Override wkid: 2264
 
@@ -15,6 +15,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 * Change from spatialreference.org to epsg.io
 
 
+[1.0.3]: https://github.com/koopjs/spatialreference/compare/v1.0.3...v1.0.2
 [1.0.2]: https://github.com/koopjs/spatialreference/compare/v1.0.2...v1.0.1
 [1.0.1]: https://github.com/koopjs/spatialreference/compare/v1.0.0...v1.0.1
 
