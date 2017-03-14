@@ -93,7 +93,7 @@ SpatialReference.prototype._getFromApi = function (wkid, callback) {
  */
 SpatialReference.prototype._req = function (url, callback) {
   request.get(url, function (err, res, body) {
-    if (err) return callback(err)
+    if (err || res.statusCode >= 400) return callback(err)
     callback(null, body)
   })
 }
