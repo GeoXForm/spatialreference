@@ -2,7 +2,7 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
-## Unreleased
+## [1.1.0] - 2018-07-23
 ### Changed
 * Altered flow: first look in DB, then ESRI codes, then epsg.io
 * Use promises, async/await, and as result, compile into a distribution that allow for use in older Node versions
@@ -26,6 +26,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ### Changed
 * Change from spatialreference.org to epsg.io
 
+[1.1.0]: https://github.com/koopjs/spatialreference/compare/v1.0.4...v1.1.0
 [1.0.4]: https://github.com/koopjs/spatialreference/compare/v1.0.3...v1.0.4
 [1.0.3]: https://github.com/koopjs/spatialreference/compare/v1.0.3...v1.0.2
 [1.0.2]: https://github.com/koopjs/spatialreference/compare/v1.0.2...v1.0.1
