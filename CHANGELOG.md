@@ -2,6 +2,14 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## Unreleased
+### Changed
+* Altered flow: first look in DB, then ESRI codes, then epsg.io
+* Use promises, async/await, and as result, compile into a distribution that allow for use in older Node versions
+
+### Added
+* Also check ESRI deprecated codes
+
 ## [1.0.4] - 2017-03-14
 ### Fixed
 * Use correct translation for non HARD NAD83
