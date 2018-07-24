@@ -6,7 +6,7 @@
   "scripts": {
     "test": "standard && tape test/*.js | tap-spec",
     "clean": "rm -rf dist",
-    "compile": "buble -i src -o dist"
+    "compile": "babel src --out-dir dist"
   },
   "repository": {
     "type": "git",
@@ -31,7 +31,7 @@
   },
   "homepage": "https://github.com/GeoXForm/spatialreference#readme",
   "devDependencies": {
-    "buble": "^0.19.3",
+    "babel-cli": "^6.26.0",
     "standard": "^11.0.1",
     "tap-spec": "^5.0.0",
     "tape": "^4.9.1"

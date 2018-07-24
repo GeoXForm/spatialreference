@@ -2,6 +2,10 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## Unreleased
+### Fixed
+* Change transpiler to babel-cli to support transpilation of async/await
+
 ## [1.1.0] - 2018-07-23
 ### Changed
 * Altered flow: first look in DB, then ESRI codes, then epsg.io
