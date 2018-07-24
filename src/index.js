@@ -23,29 +23,47 @@ class SpatialReference {
    * @param {integer} wkid
    * @param {function} callback
    */
-  async wkidToWkt (wkid, callback) {
-    try {
-      let wkt
-      // is a db used? check there first
-      if (this.db) {
-        wkt = await getFromDB.call(this, wkid)
-        if (wkt) return callback(null, fixWkt(wkt))
-      }
-      // No db, or not found in DB
-      if (!wkt) wkt = getWktFromEsri(wkid) || await getFromApi(wkid)
+  wkidToWkt (wkid, callback) {
+    // If a db used, check there first
+    if (this.db) {
+      getFromDB.call(this, wkid)
+        .then(wkt => {
+          // If wkt was not found in db, check Esri lookup
+          if (!wkt) wkt = getWktFromEsri(wkid)
 
-      // Insert into DB
-      if (this.db) {
-        return this.db.insertWKT(wkid, wkt, (err) => {
-          if (err) log.call(this, 'error', 'Failed to insert WKT into database: ' + wkid + ' ' + wkt + ', ' + err.message)
-          callback(err, fixWkt(wkt))
+          // If wkt was not found in Esri lookup, check EPSG
+          if (!wkt) return getFromApi(wkid)
+
+          return wkt
         })
-      }
-      callback(null, fixWkt(wkt))
-    } catch (err) {
-      // log
-      log(this, 'error', err.message)
-      callback(err)
+        .then(wkt => {
+          // Insert into DB
+          return this.db.insertWKT(wkid, wkt, (err) => {
+            if (err) log.call(this, 'error', 'Failed to insert WKT into database: ' + wkid + ' ' + wkt + ', ' + err.message)
+            // Log DB insertion error, but pass on wkt to callback
+            callback(null, fixWkt(wkt))
+          })
+        })
+        .catch(err => {
+          log(this, 'error', err.message)
+          return callback(err)
+        })
+    } else {
+      // No db, look in Esri first
+      const wkt = getWktFromEsri(wkid)
+
+      // If wkt found in Esri, execute callback and end here
+      if (wkt) return callback(null, fixWkt(wkt))
+
+      // If not found in Esri, look in EPSG
+      getFromApi(wkid)
+        .then(wkt => {
+          return callback(null, fixWkt(wkt))
+        })
+        .catch(err => {
+          log(this, 'error', err.message)
+          return callback(err)
+        })
     }
   }
 

@@ -2,6 +2,10 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## Unreleased
+### Fixed
+* Remove async/await and rewrite with promises to support older versions of Node
+
 ## [1.1.0] - 2018-07-23
 ### Changed
 * Altered flow: first look in DB, then ESRI codes, then epsg.io
