@@ -4,7 +4,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## Unreleased
 ### Fixed
-* Change transpiler to babel-cli to support transpilation of async/await
+* Remove async/await and rewrite with promises to support older versions of Node
 
 ## [1.1.0] - 2018-07-23
 ### Changed
