@@ -6,7 +6,7 @@
   "scripts": {
     "test": "standard && tape test/*.js | tap-spec",
     "clean": "rm -rf dist",
-    "compile": "buble src -o dist"
+    "compile": "buble -i src -o dist"
   },
   "repository": {
     "type": "git",
