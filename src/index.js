@@ -28,10 +28,9 @@ class SpatialReference {
     if (this.db) {
       getFromDB.call(this, wkid)
         .then(wkt => {
-
           if (wkt) {
             return callback(null, fixWkt(wkt))
-          } 
+          }
           // If wkt was not found in db, check Esri lookup
           if (!wkt) wkt = getWktFromEsri(wkid)
 
