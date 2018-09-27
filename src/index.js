@@ -1,7 +1,6 @@
 const request = require('request')
 const fixWkt = require('./fixwkt')
 const esriCodes = require('@esri/proj-codes')
-const esriCodesDeprecated = require('esri-proj-codes')
 
 /**
  * Define the SpatialReference class
@@ -122,7 +121,7 @@ function getFromApi (wkid) {
  * @param {integer} wkid
  */
 function getWktFromEsri (wkid) {
-  const result = esriCodes.lookup(wkid) || esriCodesDeprecated.lookup(wkid)
+  const result = esriCodes.lookup(wkid)
   if (result) return result.wkt
 }
 
