@@ -28,6 +28,10 @@ class SpatialReference {
     if (this.db) {
       getFromDB.call(this, wkid)
         .then(wkt => {
+
+          if (wkt) {
+            return callback(null, fixWkt(wkt))
+          } 
           // If wkt was not found in db, check Esri lookup
           if (!wkt) wkt = getWktFromEsri(wkid)
 
@@ -37,6 +41,9 @@ class SpatialReference {
           return wkt
         })
         .then(wkt => {
+          // If the wkt
+          if (!wkt) return
+
           // Insert into DB
           return this.db.insertWKT(wkid, wkt, (err) => {
             if (err) log.call(this, 'error', 'Failed to insert WKT into database: ' + wkid + ' ' + wkt + ', ' + err.message)

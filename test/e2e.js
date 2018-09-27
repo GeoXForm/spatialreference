@@ -29,4 +29,11 @@ test('e2e tests', function (t) {
       t.equals(wkidHash.get(7088), 'GEOGCS["GRS 1980(IUGG, 1980)",DATUM["unknown",SPHEROID["GRS80",6378137,298.257222101]],PRIMEM["Greenwich",0],UNIT["degree",0.0174532925199433],AUTHORITY["epsg","7088"]]')
     })
   })
+
+  t.test('when wkid not found anywhere - error', function (t) {
+    t.plan(1)
+    sr.wkidToWkt(9999, function (err, wkt) {
+      t.ok(err, null)
+    })
+  })
 })
