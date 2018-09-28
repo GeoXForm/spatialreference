@@ -31,12 +31,11 @@ class SpatialReference {
             return callback(null, fixWkt(wkt))
           }
           // If wkt was not found in db, check Esri lookup
-          if (!wkt) wkt = getWktFromEsri(wkid)
+          wkt = getWktFromEsri(wkid)
+          if (wkt) return wkt
 
           // If wkt was not found in Esri lookup, check EPSG
-          if (!wkt) return getFromApi(wkid)
-
-          return wkt
+          return getFromApi(wkid)
         })
         .then(wkt => {
           // If the wkt
