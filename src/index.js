@@ -1,7 +1,6 @@
 const request = require('request')
 const fixWkt = require('./fixwkt')
 const esriCodes = require('@esri/proj-codes')
-const esriCodesDeprecated = require('esri-proj-codes')
 
 /**
  * Define the SpatialReference class
@@ -28,15 +27,20 @@ class SpatialReference {
     if (this.db) {
       getFromDB.call(this, wkid)
         .then(wkt => {
+          if (wkt) {
+            return callback(null, fixWkt(wkt))
+          }
           // If wkt was not found in db, check Esri lookup
-          if (!wkt) wkt = getWktFromEsri(wkid)
+          wkt = getWktFromEsri(wkid)
+          if (wkt) return wkt
 
           // If wkt was not found in Esri lookup, check EPSG
-          if (!wkt) return getFromApi(wkid)
-
-          return wkt
+          return getFromApi(wkid)
         })
         .then(wkt => {
+          // If the wkt
+          if (!wkt) return
+
           // Insert into DB
           return this.db.insertWKT(wkid, wkt, (err) => {
             if (err) log.call(this, 'error', 'Failed to insert WKT into database: ' + wkid + ' ' + wkt + ', ' + err.message)
@@ -116,7 +120,7 @@ function getFromApi (wkid) {
  * @param {integer} wkid
  */
 function getWktFromEsri (wkid) {
-  const result = esriCodes.lookup(wkid) || esriCodesDeprecated.lookup(wkid)
+  const result = esriCodes.lookup(wkid)
   if (result) return result.wkt
 }
 
