@@ -1,6 +1,6 @@
 {
   "name": "spatialreference",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "A helper library for translating spatial reference systems",
   "main": "dist/index.js",
   "scripts": {

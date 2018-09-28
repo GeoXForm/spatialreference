@@ -2,6 +2,10 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## [1.1.2] - 2018-09-30
+### Fixed
+* Fix code flow leading to insert when already found in DB.
+
 ## [1.1.1] - 2018-07-24
 ### Fixed
 * Remove async/await and rewrite with promises to support older versions of Node
@@ -30,6 +34,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ### Changed
 * Change from spatialreference.org to epsg.io
 
+[1.1.2]: https://github.com/koopjs/spatialreference/compare/v1.1.1...v1.1.2
 [1.1.1]: https://github.com/koopjs/spatialreference/compare/v1.1.0...v1.1.1
 [1.1.0]: https://github.com/koopjs/spatialreference/compare/v1.0.4...v1.1.0
 [1.0.4]: https://github.com/koopjs/spatialreference/compare/v1.0.3...v1.0.4
