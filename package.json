@@ -37,7 +37,7 @@
     "tape": "^4.9.1"
   },
   "dependencies": {
-    "@esri/proj-codes": "^1.0.4",
+    "@esri/proj-codes": "^2.2.0",
     "request": "^2.87.0"
   }
 }
